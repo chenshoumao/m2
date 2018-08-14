@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-#±àÒë+²¿Êğm2Õ¾µã
+#ç¼–è¯‘+éƒ¨ç½²m2ç«™ç‚¹
 
-#ĞèÒªÅäÖÃÈçÏÂ²ÎÊı
-# ÏîÄ¿Â·¾¶, ÔÚExecute ShellÖĞÅäÖÃÏîÄ¿Â·¾¶, pwd ¾Í¿ÉÒÔ»ñµÃ¸ÃÏîÄ¿Â·¾¶
-# export PROJ_PATH=Õâ¸öjenkinsÈÎÎñÔÚ²¿Êğ»úÆ÷ÉÏµÄÂ·¾¶
+#éœ€è¦é…ç½®å¦‚ä¸‹å‚æ•°
+# é¡¹ç›®è·¯å¾„, åœ¨Execute Shellä¸­é…ç½®é¡¹ç›®è·¯å¾„, pwd å°±å¯ä»¥è·å¾—è¯¥é¡¹ç›®è·¯å¾„
+# export PROJ_PATH=è¿™ä¸ªjenkinsä»»åŠ¡åœ¨éƒ¨ç½²æœºå™¨ä¸Šçš„è·¯å¾„
 
-# ÊäÈëÄãµÄ»·¾³ÉÏtomcatµÄÈ«Â·¾¶
-# export TOMCAT_APP_PATH=tomcatÔÚ²¿Êğ»úÆ÷ÉÏµÄÂ·¾¶
+# è¾“å…¥ä½ çš„ç¯å¢ƒä¸Štomcatçš„å…¨è·¯å¾„
+# export TOMCAT_APP_PATH=tomcatåœ¨éƒ¨ç½²æœºå™¨ä¸Šçš„è·¯å¾„
 
-### base º¯Êı
+### base å‡½æ•°
 killTomcat()
 {
     pid=`ps -ef|grep tomcat|grep java|awk '{print $2}'`
@@ -23,17 +23,17 @@ killTomcat()
 cd $PROJ_PATH/m2
 mvn clean install
 
-# Í£tomcat
+# åœtomcat
 killTomcat
 
-# É¾³ıÔ­ÓĞ¹¤³Ì
+# åˆ é™¤åŸæœ‰å·¥ç¨‹
 rm -rf $TOMCAT_APP_PATH/webapps/m2
 rm -f $TOMCAT_APP_PATH/webapps/m2.war
 
-# ¸´ÖÆĞÂµÄ¹¤³Ì
+# å¤åˆ¶æ–°çš„å·¥ç¨‹
 cp $PROJ_PATH/m2/target/m2.war $TOMCAT_APP_PATH/webapps/
 
 
-# Æô¶¯Tomcat
+# å¯åŠ¨Tomcat
 cd $TOMCAT_APP_PATH/
 sh bin/startup.sh
