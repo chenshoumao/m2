@@ -6,8 +6,7 @@
 # 输入你的环境上tomcat的全路径
 # export TOMCAT_APP_PATH=tomcat在部署机器上的路径
 ### base 函数
-killTomcat()
-{
+killTomcat(){
     pid=`ps -ef|grep tomcat|grep java|awk '{print $2}'`
     echo "tomcat Id list :$pid"
     if [ "$pid" = "" ]
