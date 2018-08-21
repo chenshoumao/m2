@@ -32,6 +32,11 @@ public class TestServlet extends HttpServlet {
 		Test t = new Test();
 		out.println(t.sayHello("csm"));
 	}
+	
+	public static void main(String[] args) {
+		Test t = new Test();
+		System.out.println(t.sayHello("csm"));
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
