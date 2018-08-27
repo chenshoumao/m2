@@ -28,9 +28,14 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		PrintWriter out = response.getWriter();
-		Test t = new Test();
-		out.println(t.sayHello("csm"));
+		try {
+			PrintWriter out = response.getWriter();
+			Test t = new Test();
+			out.println(t.sayHello("csm"));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 	}
 	
 	public static void main(String[] args) {
